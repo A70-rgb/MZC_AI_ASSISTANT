@@ -136,8 +136,8 @@ Request:
 - Ensure CORS is enabled in Flask
 
 ### "Failed to get response: Incorrect API key"
-- Verify your OpenAI API key in `.env`
-- Check key is valid at https://platform.openai.com/api-keys
+- Verify your GROQ API key in `.env`
+- Check key is valid at https://console.groq.com/keys
 - Ensure no extra spaces/quotes in `.env`
 
 ### "Module not found" errors
@@ -152,7 +152,7 @@ Request:
 
 Edit `app.py` to customize:
 
-- **Model**: Change `gpt-3.5-turbo` to `gpt-4` (if you have access)
+- **Model**: llama-3.3-70b-versatile
 - **Temperature**: Adjust creativity (0.0-1.0)
 - **Max Tokens**: Limit response length
 - **System Prompt**: Modify chatbot personality/instructions
@@ -160,9 +160,9 @@ Edit `app.py` to customize:
 Example:
 ```python
 response = client.chat.completions.create(
-    model='gpt-4',  # Change model
-    temperature=0.5,  # Lower = more factual
-    max_tokens=1000,  # Longer responses
+     model='llama-3.3-70b-versatile',  # Change model
+    temperature=0.7,  # Lower = more factual
+    max_tokens=500,  # Longer responses
 )
 ```
 
@@ -208,7 +208,7 @@ gunicorn -w 4 -b 0.0.0.0:5000 app:app
 - Response time: ~1-3 seconds (GROQ API latency)
 - Conversation history kept to 20 messages
 - Increase `max_tokens` for longer responses (uses more API credits)
-- Use `gpt-3.5-turbo` for cost efficiency
+- Use  model='llama-3.3-70b-versatile' FREE OPEN SOURCE
 
 
 ## Future Enhancements
@@ -232,5 +232,6 @@ For issues or questions:
 - Review Flask documentation: https://flask.palletsprojects.com/
 - GROQ API https://api.groq.com/openai/v1/chat/completions
 - Contact college: 0468 - 2216325, 2217425
+
 
 
