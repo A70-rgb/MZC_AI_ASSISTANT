@@ -168,7 +168,9 @@ def clear_session():
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
-    print(f'Flask server running at http://localhost:{port}')
+    print(f'Flask server running on port {port}')
     print('Make sure GROQ_API_KEY is set in .env file')
     print('Using Groq API with llama-3.3-70b-versatile model')
-    app.run(debug=True, port=port)
+    app.run(host='0.0.0.0', port=port)
+
+
