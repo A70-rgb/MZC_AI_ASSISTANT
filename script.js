@@ -54,7 +54,7 @@ document.getElementById("userInput").addEventListener("keypress", function(event
 
 async function getBotResponse(userMessage) {
     try {
-        const response = await fetch(`${API_URL}/chat`, {
+        const response = await fetch('/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -164,3 +164,4 @@ function submitFeedback() {
     document.getElementById("feedbackText").value = "";
     closeFeedback();
 }
+
