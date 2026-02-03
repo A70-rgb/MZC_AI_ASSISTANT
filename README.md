@@ -1,10 +1,10 @@
-# MZCE College Chatbot - Flask + OpenAI
+# MZCE College Chatbot - Flask + GroqAPI
 
-An AI-powered chatbot for Mount Zion College of Engineering using Flask backend and OpenAI API.
+An AI-powered chatbot for Mount Zion College of Engineering using Flask backend and Groq API.
 
 ## Features
 
-- **OpenAI GPT Integration**: Uses GPT-3.5-turbo for intelligent responses
+- **GroqAPI GPT Integration**: Uses GPT-3.5-turbo for intelligent responses
 - **Conversation History**: Maintains context within sessions for better responses
 - **Flask Backend**: Python-based REST API server
 - **CORS Enabled**: Works seamlessly with frontend
@@ -13,7 +13,7 @@ An AI-powered chatbot for Mount Zion College of Engineering using Flask backend 
 ## Prerequisites
 
 - Python 3.8 or higher
-- OpenAI API key (get from https://platform.openai.com/api-keys)
+- GroqAPI
 - pip (Python package manager)
 
 ## Installation
@@ -50,8 +50,7 @@ cp .env.example .env
 ```
 
 2. Edit `.env` and add your OpenAI API key:
-```
-OPENAI_API_KEY=sk-your_actual_api_key_here
+```GROQ_API_KEY=SECRET GROQ API KEY
 FLASK_ENV=development
 PORT=5000
 ```
@@ -206,16 +205,11 @@ gunicorn -w 4 -b 0.0.0.0:5000 app:app
 
 ## Performance Tips
 
-- Response time: ~1-3 seconds (OpenAI API latency)
+- Response time: ~1-3 seconds (GROQ API latency)
 - Conversation history kept to 20 messages
 - Increase `max_tokens` for longer responses (uses more API credits)
 - Use `gpt-3.5-turbo` for cost efficiency
 
-## Costs
-
-- OpenAI API is pay-as-you-go
-- GPT-3.5-turbo: ~$0.0005 per 1K tokens (input)
-- Monitor usage at https://platform.openai.com/usage
 
 ## Future Enhancements
 
@@ -236,5 +230,6 @@ MIT License
 For issues or questions:
 - Check troubleshooting section
 - Review Flask documentation: https://flask.palletsprojects.com/
-- OpenAI docs: https://platform.openai.com/docs/
+- GROQ API https://api.groq.com/openai/v1/chat/completions
 - Contact college: 0468 - 2216325, 2217425
+
