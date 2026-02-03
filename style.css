@@ -315,7 +315,7 @@ body {
     padding: 15px;               /* keep */
     background:
     linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-    url("assets/image/wallpaper1.jpg");
+    url("/wallpaper1.jpg");
     background-size: cover;
     overflow-y: auto;
 
@@ -534,3 +534,4 @@ body {
         transform: scale(1);
     }
 }
+
