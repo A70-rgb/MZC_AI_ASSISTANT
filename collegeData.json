@@ -1,0 +1,172 @@
+{
+  "courses": [
+    "B.Tech - Computer Science Engineering",
+    "B.Tech - Electronics & Communication Engineering",
+    "B.Tech - Mechanical Engineering",
+    "B.Tech - Civil Engineering",
+    "B.Tech - Applied Electronics & Instrumentation",
+    "B.Tech - Aeronautical Engineering",
+    "M.Tech - Advanced Programs",
+    "MBA - Business Management",
+    "MCA - Computer Applications"
+  ],
+  "placementCompanies": [
+    "TCS (Tata Consultancy Services)",
+    "Infosys",
+    "Wipro",
+    "HCL Technologies",
+    "Accenture",
+    "Tech Mahindra",
+    "Cognizant",
+    "IBM",
+    "Abbasoft",
+    "Webcastle",
+    "zoho"
+  ],
+  "fees": {
+    "btech": "₹30000 per semester (may vary in CS around 65000 per semester)",
+    "mtech": "₹2.5 - 3.5 Lakhs per annum",
+    "mba": "₹Around 2.75-3 Lakhs for the full course",
+    "mca": "₹20000 per semester",
+    "note": "For detailed fee structure and scholarships, contact admission office",
+    "contact": "0468 - 2216325, 2217425"
+  },
+  "departments": [
+    "Computer Science Engineering",
+    "Electronics & Communication Engineering",
+    "Mechanical Engineering",
+    "Civil Engineering",
+    "Applied Electronics & Instrumentation",
+    "Aeronautical Engineering",
+    "MBA Department",
+    "MCA Department"
+  ],
+  "establishedYear": [
+    "Computer Science Engineering:2001",
+    "Electronics & Communication Engineering:2001",
+    "Mechanical Engineering:2014",
+    "Civil Engineering:2001",
+    "Applied Electronics & Instrumentation:2001",
+    "Aeronautical Engineering:2009",
+    "MBA Department:2006",
+    "MCA Department:2009"
+  ],
+  "timings":{
+    "college":"9:00 AM - 4:00 PM",
+    "bus":"Arrives at 9AM Departures at 4:10PM",
+    "hostel":"Entry before 6:30PM",
+    "class":"9:10AM - 4:00PM",
+    "canteen":"10:50AM-11:00AM morning,12:40PM-1:30PM Lunch(1:00PM-2:00PM on Friday),3:00PM-3:10PM Evening"
+  },
+  "admission": {
+    "btech": "KEAM (Common Engineering Entrance Exam) - APJ Abdul Kalam Technological University (KTU)",
+    "mtech": "GATE scores/University entrance exams",
+    "mba": "CAT/XAT/GMAT scores required",
+    "mca": "CAT/Common Entrance Exam(LBS)",
+    "contact": "0468 - 2216325, 2217425",
+    "website": "https://www.mzce.ac.in/xyzer/index.php",
+    "location": "Mount Zion College of Engineering, Kadammanitta, Pathanamthitta"
+  },
+  "map": {
+    "locationName": "Mount Zion College of Engineering, Kadammanitta, Pathanamthitta",
+    "mapUrl": "https://maps.app.goo.gl/PWB2qKoBaUsYpHcY8",
+    "description": "View our college campus location on Google Maps"
+},
+
+  "hostel": {
+    "availableFor": "Boys and Girls (Separate Hostels)",
+    "facilities": [
+      "24/7 Security",
+      "WiFi Internet Access",
+      "Mess Services with Nutritious Food",
+      "Recreation Facilities",
+      "Study Rooms",
+      "Sports Facilities",
+      "Medical Facilities",
+      "Timing for college hostel entrance before 6 PM"
+    ],
+    "note": "Contact college admission office for hostel availability and fees",
+    "contact": "0468 - 2216325, 2217425"
+  },
+"busFees": "Approximate fee for 10km for one month will be ₹700 - ₹800 depending on the route and type of bus service.",
+
+  "transportation": {
+    "busRoutes": [
+      "Regular college bus service from nearby towns",
+      "Kozhenchery - 8.3 km from campus",
+      "Pathanamthitta - 10 km from campus",
+      "Ranni - 11 km from campus",
+      "Kottarakara - 45 km from campus",
+      "Konni - 19 km from campus",
+      "Thiruvalla - 26 km from campus",
+      "Pathanapuram - 36 km from campus",
+      "Haripad - 42 km from campus"
+    ],
+    "railwayStation": "Chengannur Railway Station - 22 km away",
+    "busStand": "State and private buses available to nearby towns",
+    "contact": "Contact college for detailed transportation schedule"
+  },
+
+  "latestEvents": [
+    {
+      "name": "UNIVERGIA 2K26",
+      "date": "Feb 2026",
+      "type": "Management Fest"
+    },
+    {
+      "name": "ADHIKAR 2K26",
+      "date": "Jan 2026",
+      "type": "Annual Fest"
+    },
+    {
+      "name": "ADHIKAR 2K25",
+      "date": "Feb 2025",
+      "type": "Annual Fest"
+    },
+    {
+      "name": "Merit Day 2025",
+      "date": "Aug 2025",
+      "type": "Achievement Celebration"
+    },
+    {
+      "name": "Onam Celebration",
+      "date": "Aug 2025",
+      "type": "Cultural Event"
+    },
+    {
+      "name": "Inaugural Ceremony",
+      "date": "Aug 2025",
+      "type": "New Batch"
+    },
+    {
+      "name": "Orientation Class",
+      "date": "Jul 2025",
+      "type": "New Student Program"
+    },
+    {
+      "name": "Placement Drive",
+      "date": "Mar 2025",
+      "type": "Career Development"
+    },
+    {
+      "name": "Training Programs",
+      "date": "Regular",
+      "type": "Professional Development"
+    },
+    {
+      "name": "Workshop Series",
+      "date": "Throughout Year",
+      "type": "Skill Development"
+    }
+  ],
+  "aboutCollege": {
+    "established": "2001",
+    "approval": "Approved by AICTE",
+    "naacAccreditation": "NAAC Accredited",
+    "affiliation": "Affiliated to APJ Abdul Kalam Technological University (KTU)",
+    "campus": "10 acres panoramic campus overlooking valleys",
+    "students": "Around 2000 students pursuing various programs",
+    "mission": "Enabling the young generation to meet the challenges of futuristic society by equipping them with technological skills, sustainable values and everlasting ethos"
+  }
+  
+}

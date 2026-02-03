@@ -1,0 +1,536 @@
+:root {
+    --mzc-blue: #0b3c5d;
+    --mzc-red: #e43f44;
+    --text-dark: #333;
+}
+
+body { 
+    margin: 0; 
+    padding: 0; 
+    font-family: Arial, sans-serif; 
+}
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* Top Bar */
+.top-bar {
+    background: #f8f8f8;
+    padding: 8px 0;
+    font-size: 12px;
+    color: var(--text-dark);
+}
+.top-bar .container { display: flex; justify-content: space-between; }
+.top-links a { text-decoration: none; color: inherit; margin: 0 5px; }
+
+/* Logo Header */
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+.college-logo { height: 60px; }
+.college-code { text-align: center; color: var(--mzc-blue); }
+.college-code h2 { margin: 0; font-size: 32px; font-weight: bold; }
+
+/* Main Red Nav */
+.main-nav { background: var(--mzc-red); }
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.main-nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+.main-nav ul li a:hover { background: rgba(0,0,0,0.1); }
+
+/* Hero Section */
+.hero-section {
+    height: 500px;
+    background: url('image_905798.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.announcement-bar {
+    display: flex;
+    align-items: center;
+    background: #333;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 45px;
+    font-size: 14px;
+}
+
+.label {
+    flex-shrink: 0;
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+.marquee {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 25s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* Floating AI Icon */
+/* 1. Update the existing .ai-icon to ensure pseudo-elements are visible */
+/* 1. The main icon container */
+.ai-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #0b3c5d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+    
+    /* Applying the Jiggle animation constanty */
+    /* Change 'infinite' to '0s' if you only want it on hover */
+    animation: jiggle 2s ease-in-out infinite;
+}
+
+/* 2. The pulsing rings (using your wave keyframes) */
+.ai-icon::before,
+.ai-icon::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 2px solid #0b3c5d;
+    opacity: 0;
+    z-index: -1;
+    animation: wave 2s linear infinite;
+}
+
+/* Offset the second ring */
+.ai-icon::after {
+    animation-delay: 1s;
+}
+
+/* --- KEYFRAMES --- */
+
+@keyframes wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes jiggle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    10%, 30% { transform: rotate(-8deg) scale(1.05); }
+    20%, 40% { transform: rotate(8deg) scale(1.05); }
+    50% { transform: rotate(0deg) scale(1); } /* Pause for a moment */
+}
+
+.ai-icon:hover {
+    /* Triggers only on hover, or remove ':hover' to make it constant */
+    animation: jiggle 0.5s ease-in-out infinite;
+}
+.ai-icon {
+    animation: breath 3s ease-in-out infinite;
+}
+.ai-icon img {
+    width: 34px;
+}
+
+/* Chatbot */
+.chatbot-container {
+    width: 380px;
+    height: 600px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.chatbot-container.enlarged {
+    width: 90vw;
+    height: 90vh;
+    bottom: 5vh;
+    right: 5vw;
+    left: 5vw;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+}
+
+ 
+/* ================================
+   CHATBOT HEADER
+================================ */
+
+.chatbot-header {
+    background: linear-gradient(135deg, #0b3c5d 0%, #154470 100%);
+    color: #ffffff;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px 16px 0 0;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ================================
+   LEFT SECTION (LOGO + TITLE)
+================================ */
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+/* Logo ONLY */
+.header-left img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.header-left span {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+/* ================================
+   RIGHT SECTION (ACTION ICONS)
+================================ */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Icon container */
+.header-actions span {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Icon image */
+.header-actions span img {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+/* Hover effect */
+.header-actions span:hover {
+    background: rgba(0, 0, 0, 0.18);
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Active click feedback */
+.header-actions span:active {
+    transform: scale(0.95);
+}
+
+/* ================================
+   RESPONSIVE ADJUSTMENTS
+================================ */
+
+@media (max-width: 480px) {
+    .header-left span {
+        font-size: 12px;
+    }
+
+    .header-actions span {
+        width: 24px;
+        height: 24px;
+    }
+
+    .header-actions span img {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+
+
+/* Body */
+
+.chatbot-body {
+    flex: 1;
+    padding: 15px;               /* keep */
+    background:
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+    url("assets/image/wallpaper1.jpg");
+    background-size: cover;
+    overflow-y: auto;
+
+    /* ➕ ADD THESE */
+    box-sizing: border-box;
+}
+
+.bot-message {
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+
+    max-width: 85%;
+    width: fit-content;
+
+    box-sizing: border-box;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+
+    text-align: left;        /* ✅ FIX */
+    display: block;          /* ✅ FIX */
+}
+
+/* ONLY first welcome message */
+.bot-message.welcome {
+    text-align: left;          /* left-align text */
+    align-self: flex-start;    /* left-align bubble */
+    margin-right: auto;        /* ensure it sticks left */
+
+    max-width: 70%;
+    line-height: 1.6;
+}
+
+.bot-message a {
+    color: #0066cc;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.bot-message a:hover {
+    color: #0052a3;
+    text-decoration: underline;
+}
+
+.user-message {
+    background: #0b3c5d;
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    margin-left: auto;
+    max-width: 90%;
+}
+
+.quick-buttons button {
+    width: 100%;
+    background: #0b3c5d;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Footer */
+.chatbot-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chatbot-footer input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.chatbot-footer button {
+    width: 40px;
+    height: 40px;
+    background: #0b3c5d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+/* ================================
+   FEEDBACK MODAL – GLASS EFFECT
+================================ */
+
+.feedback-modal {
+    display: none; /* Keep this */
+    position: fixed;
+    inset: 0;
+
+    background: rgba(11, 60, 93, 0.35); 
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    z-index: 2000;
+    /* REMOVE display: flex; from here */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Glass card */
+.feedback-box {
+    width: 340px;
+    padding: 22px;
+
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 16px;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    animation: feedbackFadeIn 0.25s ease;
+}
+
+/* Title */
+.feedback-box h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0b3c5d;
+}
+
+/* Textarea */
+.feedback-box textarea {
+    width: 100%;
+    height: 110px;
+
+    padding: 5px;
+    padding-right: 0px;
+    border-radius: 10px;
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.9);
+
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+    resize: none;
+
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feedback-box textarea:focus {
+    border-color: #0b3c5d;
+    box-shadow: 0 0 0 2px rgba(11, 60, 93, 0.2);
+}
+
+/* Actions */
+.feedback-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+/* Buttons */
+.feedback-actions button {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+/* Submit button */
+.feedback-actions button:not(.cancel) {
+    background: linear-gradient(135deg, #0b3c5d, #154470);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(11, 60, 93, 0.35);
+}
+
+/* Cancel button */
+.feedback-actions .cancel {
+    background: rgba(0, 0, 0, 0.08);
+    color: #333;
+}
+
+/* Hover / active */
+.feedback-actions button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+.feedback-actions button:active {
+    transform: scale(0.96);
+}
+
+/* Entry animation */
+@keyframes feedbackFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
