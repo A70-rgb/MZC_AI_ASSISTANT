@@ -32,8 +32,13 @@ body {
     align-items: center;
     padding: 15px 0;
 }
-.college-logo { height: 60px; }
-.college-code { text-align: center; color: var(--mzc-blue); }
+
+.college-logo {
+    max-height: 80px;
+    width: auto;
+}
+
+.college-code { text-align: center; font-size: 32px; color: var(--mzc-blue); }
 .college-code h2 { margin: 0; font-size: 32px; font-weight: bold; }
 
 /* Main Red Nav */
@@ -58,7 +63,6 @@ body {
 /* Hero Section */
 .hero-section {
     height: 500px;
-    background: url('image_905798.jpg') center/cover no-repeat;
     position: relative;
 }
 
@@ -104,25 +108,46 @@ body {
 /* Floating AI Icon */
 /* 1. Update the existing .ai-icon to ensure pseudo-elements are visible */
 /* 1. The main icon container */
+/* Image wrapper becomes reference point */
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Chatbot icon locked to image */
+/* Reference container */
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Icon locked to image bottom-right */
 .ai-icon {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 20px;
+    right: 20px;
+
     width: 60px;
     height: 60px;
-    background: #0b3c5d;
+    background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
+    z-index: 999;
+
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    z-index: 1000;
-    
-    /* Applying the Jiggle animation constanty */
-    /* Change 'infinite' to '0s' if you only want it on hover */
     animation: jiggle 2s ease-in-out infinite;
 }
+
+/**/
+.ai-icon img {
+    width: 34px;
+}
+
 
 /* 2. The pulsing rings (using your wave keyframes) */
 .ai-icon::before,
@@ -134,7 +159,7 @@ body {
     right: 0;
     bottom: 0;
     border-radius: 50%;
-    border: 2px solid #0b3c5d;
+    border: 2px solid #667eea;
     opacity: 0;
     z-index: -1;
     animation: wave 2s linear infinite;
@@ -315,7 +340,7 @@ body {
     padding: 15px;               /* keep */
     background:
     linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-    url("/wallpaper1.jpg");
+    url("image/wallpaper1.jpg");
     background-size: cover;
     overflow-y: auto;
 
@@ -534,4 +559,3 @@ body {
         transform: scale(1);
     }
 }
-
