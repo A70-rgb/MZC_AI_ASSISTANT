@@ -230,8 +230,9 @@ MIT License
 For issues or questions:
 - Check troubleshooting section
 - Review Flask documentation: https://flask.palletsprojects.com/
-- GROQ API https://api.groq.com/openai/v1/chat/completions
+- GROQ API https://console.groq.com/docs/overview
 - Contact college: 0468 - 2216325, 2217425
+
 
 
 
