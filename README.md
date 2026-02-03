@@ -4,7 +4,7 @@ An AI-powered chatbot for Mount Zion College of Engineering using Flask backend 
 
 ## Features
 
-- **GroqAPI GPT Integration**: Uses GPT-3.5-turbo for intelligent responses
+- **GroqAPI GPT Integration**: Uses model llama-3.3-70b-versatile for intelligent responses
 - **Conversation History**: Maintains context within sessions for better responses
 - **Flask Backend**: Python-based REST API server
 - **CORS Enabled**: Works seamlessly with frontend
@@ -232,6 +232,7 @@ For issues or questions:
 - Review Flask documentation: https://flask.palletsprojects.com/
 - GROQ API https://api.groq.com/openai/v1/chat/completions
 - Contact college: 0468 - 2216325, 2217425
+
 
 
 
