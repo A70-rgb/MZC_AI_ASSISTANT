@@ -49,7 +49,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-2. Edit `.env` and add your OpenAI API key:
+2. Edit `.env` and add your GROQ API key:
 ```GROQ_API_KEY=SECRET GROQ API KEY
 FLASK_ENV=development
 PORT=5000
@@ -232,4 +232,5 @@ For issues or questions:
 - Review Flask documentation: https://flask.palletsprojects.com/
 - GROQ API https://api.groq.com/openai/v1/chat/completions
 - Contact college: 0468 - 2216325, 2217425
+
 
