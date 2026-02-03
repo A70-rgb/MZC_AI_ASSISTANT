@@ -112,20 +112,26 @@ body {
 .hero-image-wrapper {
     position: relative;
     width: 100%;
+    aspect-ratio: 16 / 6;   /* 🔑 FIXES tablet & mobile jump */
+    overflow: hidden;
+}
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-/* Chatbot icon locked to image */
-/* Reference container */
-.hero-image-wrapper {
-    position: relative;
-    width: 100%;
-}
+
 
 /* Icon locked to image bottom-right */
-.ai-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+/* AI icon – anchored to hero image */
+.hero-image-wrapper .ai-icon {
+    position: absolute;
+
+    /* Bottom-right relative to IMAGE */
+    bottom: 15%;
+    right: 3%;
 
     width: 60px;
     height: 60px;
@@ -137,14 +143,14 @@ body {
     justify-content: center;
 
     cursor: pointer;
-    z-index: 999;
+    z-index: 5;
 
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     animation: jiggle 2s ease-in-out infinite;
 }
 
-/**/
-.ai-icon img {
+/* Icon image */
+.hero-image-wrapper .ai-icon img {
     width: 34px;
 }
 
@@ -559,4 +565,3 @@ body {
         transform: scale(1);
     }
 }
-
