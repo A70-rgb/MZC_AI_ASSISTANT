@@ -78,7 +78,9 @@ Exam Website: https://ktu.edu.in/exam/notification
 Result Website: https://app.ktu.edu.in/login.htm
 Exam Registration:https://app.ktu.edu.in/login.htm
 Phone: 0468 - 2216325, 2217425
-Email:contactmountzion@gmail.com/mzcengg@gmail.com/contact@mzce.ac.in
+Email 1:contactmountzion@gmail.com
+Email 2:mzcengg@gmail.com
+Email 3:contact@mzce.ac.in
 
 """
 
@@ -172,6 +174,7 @@ if __name__ == '__main__':
     print('Make sure GROQ_API_KEY is set in .env file')
     print('Using Groq API with llama-3.3-70b-versatile model')
     app.run(host='0.0.0.0', port=port)
+
 
 
 
