@@ -1,4 +1,4 @@
-# MZCE College Chatbot - Flask + GroqAPI
+# MZC ZIONX AI ASSISTANT College Chatbot - Flask + GroqAPI
 
 An AI-powered chatbot for Mount Zion College of Engineering using Flask backend and Groq API.
 
@@ -232,6 +232,7 @@ For issues or questions:
 - Review Flask documentation: https://flask.palletsprojects.com/
 - GROQ API https://console.groq.com/docs/overview
 - Contact college: 0468 - 2216325, 2217425
+
 
 
 
