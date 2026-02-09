@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <title><img src="\assets\image\zion.png">MZC AI Chatbot</title>
     <link rel="stylesheet" href="style.css"> -->
     <title>MZC AI Chatbot</title>
     <link rel="icon" type="image/png" href="/zion.png" style="width: 24px; height: 24px;">
@@ -11,7 +10,7 @@
 
 </head>
 <body>
-<div class="top-bar" style="background-color: #0b3c5d; color: white;">
+<div class="top-bar" style="background: #0b3c5d;color: white;">
         <div class="container">
             <span>Call: 0468 - 2216325, 2217425</span>
             <div class="top-links">
@@ -57,24 +56,24 @@
 
 <section class="hero-section">
     <div class="announcement-bar">
-        <span class="label">|&nbsp;&nbsp;ANNOUNCEMENTS:</span>
+        <span class="label">|&nbsp;&nbsp;ANNOUNCEMENTS :</span>
             <div class="marquee">
                 <div class="marquee-content">
-                    Admission Open - 2K26 &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <b>Admission Open - 2K26 &nbsp;&nbsp;|&nbsp;&nbsp;
                     Adhikar 2K26 on Jan 28/29 &nbsp;&nbsp;|&nbsp;&nbsp;
                     UNIVERGIA 2K26 ON FEB 4 &nbsp;&nbsp;|&nbsp;&nbsp;
                     CAMPUS TO CORPORATE PLACEMENT TRAINING &nbsp;&nbsp;|&nbsp;&nbsp;
                     OUTCOME BASED EDUCATION SOFTWARE TRAINING &nbsp;&nbsp;|&nbsp;&nbsp;
                     COURSES AVAILABLE: MCA / MBA / BTECH (CSE, ECE, ME, CE, AEI, Aero)
-                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    &nbsp;&nbsp;|&nbsp;&nbsp;</b>
 
                     <!-- DUPLICATE CONTENT FOR SEAMLESS LOOP -->
-                    Admission Open - 2K26 &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <b>Admission Open - 2K26 &nbsp;&nbsp;|&nbsp;&nbsp;
                     Adhikar 2K26 on Jan 28/29 &nbsp;&nbsp;|&nbsp;&nbsp;
                     UNIVERGIA 2K26 ON FEB 4 &nbsp;&nbsp;|&nbsp;&nbsp;
                     CAMPUS TO CORPORATE PLACEMENT TRAINING &nbsp;&nbsp;|&nbsp;&nbsp;
                     OUTCOME BASED EDUCATION SOFTWARE TRAINING &nbsp;&nbsp;|&nbsp;&nbsp;
-                    COURSES AVAILABLE: MCA / MBA / BTECH (CSE, ECE, ME, CE, AEI, Aero)
+                    COURSES AVAILABLE: MCA / MBA / BTECH (CSE, ECE, ME, CE, AEI, Aero)</b>
                 </div>
             </div>
     </div>
@@ -92,8 +91,8 @@
 <div class="chatbot-container" id="chatbot">
     <div class="chatbot-header">
         <div class="header-left">
-            <img src="/zion.png" alt="AI Agent" style="width: 50px; height: 50px; object-fit: contain;">
-            <span>MZC ZionX Assistant</span>
+            <img src="\image\zion.png" alt="AI Agent" style="width: 50px; height: 50px; object-fit: contain;">
+            <span>MZC ZionX <br>AI Assistant</span>
         </div>
         <div class="header-actions">
             <span title="New Chat" onclick="startNewChat()" class="new-chat-btn"><img src="/iconsnew.png" alt="New Chat" /></span>
@@ -122,6 +121,7 @@
     </div>
     <div class="chatbot-footer">
         <div class="chat-input-wrapper">
+            <button id="voiceBtn" title="Voice input"><img src="/voice1.png" alt="Voice Input" style="width: 24px;height: 24px;"></button>
             <input type="text" id="userInput" placeholder="Write your message...">
             <button onclick="sendMessage()">➤</button>
         </div>
