@@ -1,12 +1,23 @@
-// Flask API configuration
-const API_URL = 'http://localhost:5000/api';
-let sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+/* =========================================================
+   CONFIGURATION
+========================================================= */
 
-// Load when page starts
-window.addEventListener('load', () => {
-    console.log('Chatbot ready. Backend: Flask + GroqAI');
-    console.log('Session ID:', sessionId);
+const API_URL = 'http://localhost:5000/api';
+let sessionId =
+    'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+/* =========================================================
+   ON LOAD
+========================================================= */
+
+window.addEventListener("load", () => {
+    console.log("Chatbot ready | Flask + GroqAI");
+    console.log("Session ID:", sessionId);
 });
+
+/* =========================================================
+   CHATBOT OPEN / CLOSE
+========================================================= */
 
 function openChatbot() {
     document.getElementById("chatbot").style.display = "flex";
@@ -19,61 +30,70 @@ function closeChatbot() {
 }
 
 function toggleEnlarge() {
-    let chatbot = document.getElementById("chatbot");
-    chatbot.classList.toggle("enlarged");
+    document.getElementById("chatbot").classList.toggle("enlarged");
 }
 
+/* =========================================================
+   SEND MESSAGE (TEXT ONLY)
+========================================================= */
+
 function sendMessage() {
-    let input = document.getElementById("userInput");
-    let message = input.value.trim();
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
     if (!message) return;
 
     appendUserMessage(message);
     input.value = "";
 
-    // Show loading indicator
-    let chat = document.getElementById("chatBody");
-    let loadingDiv = document.createElement("div");
+    const chat = document.getElementById("chatBody");
+
+    const loadingDiv = document.createElement("div");
     loadingDiv.className = "bot-message";
     loadingDiv.id = "loading-message";
     loadingDiv.innerText = "Thinking...";
     chat.appendChild(loadingDiv);
-    chat.scrollTop = chat.scrollHeight;
 
-    // Call Flask API
+    chat.scrollTop = chat.scrollHeight;
     getBotResponse(message);
 }
-//enter key to send message
-document.getElementById("userInput").addEventListener("keypress", function(event) {
+
+/* =========================================================
+   GLOBAL ENTER KEY (WORKS DURING RECORDING)
+========================================================= */
+
+document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
-        sendMessage();
+
+        // If mic is recording → stop and send after transcript
+        if (isRecording && recognition) {
+            sendAfterVoice = true;
+            recognition.stop();
+        } else {
+            sendMessage();
+        }
     }
 });
 
+/* =========================================================
+   FLASK API CALL
+========================================================= */
 
 async function getBotResponse(userMessage) {
     try {
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+        const response = await fetch(`${API_URL}/chat`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 message: userMessage,
                 sessionId: sessionId
             })
         });
 
-        // Remove loading indicator
-        let loadingDiv = document.getElementById("loading-message");
-        if (loadingDiv) {
-            loadingDiv.remove();
-        }
+        document.getElementById("loading-message")?.remove();
 
         if (!response.ok) {
-            const error = await response.json();
-            appendBotMessage(`Error: ${error.error || 'Failed to get response'}`);
+            appendBotMessage("⚠️ Server error. Please try again.");
             return;
         }
 
@@ -81,62 +101,77 @@ async function getBotResponse(userMessage) {
         appendBotMessage(data.response);
 
     } catch (error) {
-        console.error('Error:', error);
-        
-        // Remove loading indicator
-        let loadingDiv = document.getElementById("loading-message");
-        if (loadingDiv) {
-            loadingDiv.remove();
-        }
-
-        appendBotMessage(`⚠️ Connection error: Make sure Flask server is running at ${API_URL}`);
+        console.error(error);
+        document.getElementById("loading-message")?.remove();
+        appendBotMessage("⚠️ Connection error. Is Flask running?");
     }
 }
 
+/* =========================================================
+   QUICK BUTTONS
+========================================================= */
+
 function sendQuick(text) {
     appendUserMessage(text);
-    
-    let chat = document.getElementById("chatBody");
-    let loadingDiv = document.createElement("div");
+
+    const chat = document.getElementById("chatBody");
+    const loadingDiv = document.createElement("div");
     loadingDiv.className = "bot-message";
     loadingDiv.id = "loading-message";
     loadingDiv.innerText = "Thinking...";
     chat.appendChild(loadingDiv);
-    chat.scrollTop = chat.scrollHeight;
 
+    chat.scrollTop = chat.scrollHeight;
     getBotResponse(text);
 }
 
+/* =========================================================
+   MESSAGE RENDERING
+========================================================= */
+
 function appendUserMessage(text) {
-    let chat = document.getElementById("chatBody");
-    let div = document.createElement("div");
+    const chat = document.getElementById("chatBody");
+    const div = document.createElement("div");
     div.className = "user-message";
     div.innerText = text;
     chat.appendChild(div);
+
     chat.scrollTop = chat.scrollHeight;
 }
 
 function appendBotMessage(text) {
-    let chat = document.getElementById("chatBody");
-    let div = document.createElement("div");
+    const chat = document.getElementById("chatBody");
+    const div = document.createElement("div");
     div.className = "bot-message";
-    // Convert URLs to clickable links
     div.innerHTML = convertUrlsToLinks(text);
+
     chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
+
+    // Show reply from TOP
+    div.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 }
 
+/* Convert URLs to clickable links */
 function convertUrlsToLinks(text) {
-    // Regex to match URLs
     const urlRegex = /(https?:\/\/[^\s]+)/g;
-    // Replace URLs with clickable links in blue color
-    return text.replace(urlRegex, '<a href="$1" target="_blank" style="color: #0066cc; text-decoration: underline; font-weight: 600;">$1</a>');
+    return text.replace(
+        urlRegex,
+        '<a href="$1" target="_blank" style="color:#0066cc;font-weight:600;">$1</a>'
+    );
 }
+
+/* =========================================================
+   NEW CHAT
+========================================================= */
 
 function startNewChat() {
     document.getElementById("chatBody").innerHTML = `
-        <div class="bot-message welcome"><strong>Welcome to Mount Zion College of Engineering!</strong>
-            <br>I’m ZionX AI Assistant 🤖. How can I assist you today?
+        <div class="bot-message welcome">
+            <strong>Welcome to Mount Zion College of Engineering!</strong><br>
+            I’m ZionX AI Assistant 🤖. How can I assist you today?
         </div>
         <div class="quick-buttons">
             <button onclick="sendQuick('What courses are offered at MZC?')">Courses</button>
@@ -145,6 +180,10 @@ function startNewChat() {
             <button onclick="sendQuick('Tell me about hostel facilities')">Hostel</button>
         </div>`;
 }
+
+/* =========================================================
+   FEEDBACK MODAL
+========================================================= */
 
 function openFeedback() {
     document.getElementById("feedbackModal").style.display = "flex";
@@ -155,7 +194,7 @@ function closeFeedback() {
 }
 
 function submitFeedback() {
-    let feedback = document.getElementById("feedbackText").value.trim();
+    const feedback = document.getElementById("feedbackText").value.trim();
     if (!feedback) {
         alert("Please enter feedback");
         return;
@@ -165,3 +204,52 @@ function submitFeedback() {
     closeFeedback();
 }
 
+/* =========================================================
+   VOICE INPUT (SPEECH → TEXT ONLY)
+========================================================= */
+
+const voiceBtn = document.getElementById("voiceBtn");
+const inputField = document.getElementById("userInput");
+
+let recognition;
+let isRecording = false;
+let sendAfterVoice = false;
+
+if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
+    const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    recognition = new SpeechRecognition();
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
+    recognition.onresult = (event) => {
+        inputField.value = event.results[0][0].transcript;
+
+        // If Enter was pressed during recording → send now
+        if (sendAfterVoice) {
+            sendAfterVoice = false;
+            sendMessage();
+        }
+    };
+
+    recognition.onend = () => {
+        isRecording = false;
+        voiceBtn.classList.remove("recording");
+        inputField.placeholder = "Write your message...";
+    };
+}
+
+voiceBtn.addEventListener("click", () => {
+    if (!recognition) {
+        alert("Voice input not supported in this browser");
+        return;
+    }
+
+    if (!isRecording) {
+        recognition.start();
+        isRecording = true;
+        inputField.placeholder = "Listening… press Enter to send";
+        voiceBtn.classList.add("recording");
+    }
+});
