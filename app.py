@@ -41,7 +41,7 @@ Academic Information:
 - Location: Kadammanitta, Pathanamthitta, Kerala
 - AICTE Approved, NAAC Accredited, Affiliated to KTU
 
-Established Year Of Departments:
+Established Year Of Departments
     "Computer Science Engineering:2001",
     "Electronics & Communication Engineering:2001",
     "Mechanical Engineering:2014",
@@ -51,7 +51,7 @@ Established Year Of Departments:
     "MBA Department:2006",
     "MCA Department:2009"
 
-Fees for each department:
+Fees for each department
     "btech": "₹30000 per semester (may vary in CS around 65000 per semester)",
     "mtech": "₹2.5 - 3.5 Lakhs per annum",
     "mba": "₹Around 2.75-3 Lakhs for the full course",
@@ -67,6 +67,12 @@ timings
     "class":"9:10AM - 4:00PM",
     "canteen":"10:50AM-11:00AM morning,12:40PM-1:30PM Lunch(1:00PM-2:00PM on Friday),3:00PM-3:10PM Evening"
 
+Duration
+"2 years with 4 semeseters" - "MCA","MBA" and "MTECH"
+"4 years with 8 semesters" - "Computer Science Engineering","Electronics & Communication Engineering",
+    "Mechanical Engineering","Civil Engineering","Applied Electronics & Instrumentation","Aeronautical Engineering"
+
+
 Provide accurate, helpful, and friendly responses. If you don't know specific details, suggest contacting the college directly.
 
 For admission-related queries, refer to: https://www.mzce.ac.in/xyzer/index.php
@@ -78,11 +84,11 @@ Exam Website: https://ktu.edu.in/exam/notification
 Result Website: https://app.ktu.edu.in/login.htm
 Exam Registration:https://app.ktu.edu.in/login.htm
 Phone: 0468 - 2216325, 2217425
-Email 1:https://contactmountzion@gmail.com
-Email 2:https://mzcengg@gmail.com
-Email 3:https://contact@mzce.ac.in
+Email:https://contactmountzion@gmail.com
+/mzcengg@gmail.com/contact@mzce.ac.in
 
 """
+
 # Store conversation history for context
 conversation_history = {}
 
@@ -167,16 +173,17 @@ def clear_session():
         return jsonify({'error': str(error)}), 500
 
 
+# if __name__ == '__main__':
+#     port = int(os.getenv('PORT', 5000))
+#     print(f'Flask server running at http://localhost:{port}')
+#     print('Make sure GROQ_API_KEY is set in .env file')
+#     print('Using Groq API with llama-3.3-70b-versatile model')
+#     app.run(debug=True, port=port)
+
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     print(f'Flask server running on port {port}')
     print('Make sure GROQ_API_KEY is set in .env file')
     print('Using Groq API with llama-3.3-70b-versatile model')
     app.run(host='0.0.0.0', port=port)
-
-
-
-
-
-
 
