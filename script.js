@@ -81,7 +81,7 @@ document.addEventListener("keydown", (event) => {
 
 async function getBotResponse(userMessage) {
     try {
-        const response = await fetch(`${API_URL}/chat`, {
+        const response = await fetch(api/chat, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -253,3 +253,4 @@ voiceBtn.addEventListener("click", () => {
         voiceBtn.classList.add("recording");
     }
 });
+
