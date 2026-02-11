@@ -32,6 +32,16 @@ Departments & Heads of Department (HODs):
 - Master Computer Applications (MCA): Bevi Mariam Koshy
 - Basic Sciences: Sudheeesh S R
 
+institutions under mount zion group
+- Mount Zion Medical College & Hospital: Located in Chayalode, Adoor.
+- Mount Zion Institute of Science & Technology: Located in Kozhuvalloor, Chengannur.
+- Mount Zion Law College: Situated in Kadammanitta, Pathanamthitta.
+- Mount Zion College of Pharmaceutical Sciences and Research: Located in Adoor.
+- Mount Zion Institute of Management: Offers MBA programs and is located in Chengannur.
+- Mount Zion College of Aircraft Maintenance Engineering: Located in Kumbazha, Pathanamthitta.
+- Mount Zion Institute of Allied Health Sciences: Located in Adoor.
+- Mount Zion Residential School: An affiliated K-12 school in Kadammanitta.
+
 Academic Information:
 - Courses offered: B.Tech (CSE, ECE, Mechanical, Civil, AE, AE&I), M.Tech, MBA, MCA
 - Placement information (Google, Amazon, Microsoft, TCS, Infosys, Wipro, HCL, Accenture, Tech Mahindra, Cognizant, IBM, etc.)
@@ -180,5 +190,6 @@ if __name__ == '__main__':
     print('Make sure GROQ_API_KEY is set in .env file')
     print('Using Groq API with llama-3.3-70b-versatile model')
     app.run(host='0.0.0.0', port=port)
+
 
 
