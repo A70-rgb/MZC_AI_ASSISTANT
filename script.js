@@ -176,6 +176,21 @@ function startNewChat() {
 }
 
 /* =========================================================
+   feedback CHAT
+========================================================= */
+
+function submitFeedback() {
+    let feedback = document.getElementById("feedbackText").value.trim();
+    if (!feedback) {
+        alert("Please enter feedback");
+        return;
+    }
+    alert("Thank you for your feedback!");
+    document.getElementById("feedbackText").value = "";
+    closeFeedback();
+}
+
+/* =========================================================
    VOICE INPUT (SPEECH → TEXT ONLY)
 ========================================================= */
 
@@ -223,3 +238,4 @@ voiceBtn.addEventListener("click", () => {
     voiceBtn.classList.add("recording");
   }
 });
+
